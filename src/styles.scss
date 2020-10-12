@@ -8,40 +8,33 @@ body {
   height: 100vh;
 
   display: flex;
-  justify-content: center;
-  align-items: center;
+  justify-content: flex-end;
 
-  background: url("./images/background.jpg") no-repeat center;
-  background-size: cover;
+  background: linear-gradient(
+    90deg,
+    #8dffe2 0%,
+    #8ffff9 25%,
+    #98e2ff 50%,
+    #78c9ff 75%,
+    #557dff 100%
+  );
 }
 
 .burger {
-  position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
 
+  width: 150px;
+  height: 150px;
+
+  transition: all 0.6s ease-out;
   cursor: pointer;
 
-  &:before {
-    content: "";
-    position: absolute;
-    width: 150px;
-    height: 150px;
-
-    background-color: rgba(255, 255, 255, 0.5);
-    transition: all 0.6s ease-out;
-  }
-
-  &__button {
-    width: 26px;
-  }
-
   &:hover {
-    &.burger:before {
-      background-color: #e70d44;
-      transform: scale(1.1);
-    }
+    background-color: #e70d44;
+    transform: scale(1.1);
+    overflow: hidden;
 
     & .burger__element {
       width: 14px;
@@ -54,6 +47,10 @@ body {
         width: 22px;
       }
     }
+  }
+
+  &__button {
+    width: 26px;
   }
 
   &__element {
