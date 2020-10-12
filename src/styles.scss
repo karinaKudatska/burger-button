@@ -1,0 +1,111 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  height: 100vh;
+
+  display: flex;
+  justify-content: flex-end;
+
+  background: linear-gradient(
+    90deg,
+    #8dffe2 0%,
+    #8ffff9 25%,
+    #98e2ff 50%,
+    #78c9ff 75%,
+    #557dff 100%
+  );
+}
+
+.burger {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  width: 150px;
+  height: 150px;
+
+  transition: all 0.6s ease-out;
+  cursor: pointer;
+
+  &:hover {
+    background-color: #e70d44;
+    transform: scale(1.1);
+    overflow: hidden;
+
+    & .burger__element {
+      width: 14px;
+
+      &:before {
+        width: 26px;
+      }
+
+      &:after {
+        width: 22px;
+      }
+    }
+  }
+
+  &__button {
+    width: 26px;
+  }
+
+  &__element {
+    position: relative;
+    width: 26px;
+    height: 3px;
+
+    background-color: #fff;
+    transition: all 0.5s;
+
+    &:before {
+      content: "";
+      position: absolute;
+      top: -9px;
+      width: 22px;
+      height: 3px;
+
+      background-color: #fff;
+      transition: all 0.6s ease-out;
+    }
+
+    &:after {
+      content: "";
+      position: absolute;
+      top: 9px;
+      width: 14px;
+      height: 3px;
+
+      background-color: #fff;
+      transition: all 0.6s ease-out;
+    }
+  }
+
+  &.active {
+    &:before {
+      background-color: #e70d44;
+      transform: scale(1.1);
+    }
+
+    .burger {
+      &__element {
+        background: transparent;
+
+        &:before {
+          top: 6px;
+          width: 26px;
+          transform: rotate(45deg);
+        }
+
+        &:after {
+          top: 6px;
+          width: 26px;
+          transform: rotate(-45deg);
+        }
+      }
+    }
+  }
+}
